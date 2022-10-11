@@ -2,11 +2,88 @@
     <head>
         <meta charset="UTF-8">
         
-    <script type="module" crossorigin src="/1024demo/assets/index.fe1fc3cd.js"></script>
+        <style>
+            .loading,
+            .loading > div {
+                position: relative;
+                box-sizing: border-box;
+            }
+            .loading {
+                display: block;
+                font-size: 0;
+                color: #7AD0AC;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 50%;
+                top: 50%;
+                text-align: center;
+                transform: translateX(-50%);
+            }
+            .loading.la-dark {
+                color: #333;
+            }
+            .loading > div {
+                display: inline-block;
+                float: none;
+                background-color: currentColor;
+                border: 0 solid currentColor;
+            }
+            .loading {
+                width: 304px;
+                height: 30px;
+            }
+            .loading > div {
+                width: 10px;
+                height: 10px;
+                margin: 10px;
+                border-radius: 100%;
+                opacity: 0;
+                animation: ball-fall 1s ease-in-out infinite;
+            }
+
+            .loading > div:nth-child(1) {
+                animation-delay: -200ms;
+            }
+            .loading > div:nth-child(2) {
+                animation-delay: -100ms;
+            }
+            .loading > div:nth-child(3) {
+                animation-delay: 0ms;
+            }
+            @keyframes ball-fall {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-145%);
+                }
+                10% {
+                    opacity: 0.5;
+                }
+                20% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                80% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                90% {
+                    opacity: 0.5;
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(145%);
+                }
+            }
+            .draw {
+                transition: all 0.8s linear;
+            }
+    </style>
+    <script type="module" crossorigin src="/1024demo/assets/index.c95e8cf8.js"></script>
   <link rel="stylesheet" href="/1024demo/assets/index.1aa682b4.css">
 </head>
     <body>
-        <div class="draw">
+        <div class="draw" style="visibility: hidden; opacity: 0;">
             <canvas id="canvas"></canvas>
             <img class="gif" src="/1024demo/assets/basketball.6c646b72.gif" />
             <div class="other">
@@ -96,6 +173,11 @@
         <div class="page-wrapper">
             <h1>只因 1024 太美</h1>
             <p style="margin-top: -20px">在元宇宙中唱、跳、rap</p>
+        </div>
+        <div class="loading" style="display: block">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </body>
     
